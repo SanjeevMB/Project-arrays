@@ -5,10 +5,21 @@ function reduce(elements, cb, startingValue) {
     // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
     // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
 
+    let initialLength = elements.length;
+
     let finalValue = startingValue;
-    for (let index = 0; index < elements.length; index++) {
-        let updatedValue = cb(finalValue, elements, index);
-        finalValue = updatedValue;
+
+    if(finalValue === undefined){
+        finalValue = elements[0];
+    }
+
+    for (let index = 0; index < initialLength; index++) {
+        let updatedValue = cb(finalValue, elements[index]);
+        if(updatedValue === undefined){
+            continue;
+        }else{
+            finalValue = updatedValue;
+        }
     }
     return finalValue;
 }
