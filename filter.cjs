@@ -5,15 +5,19 @@ function filter(elements, cb) {
 
     let filteredArray = [];
 
-    for(let index = 0; index < elements.length; index++){
-        let response = cb(elements,index);
-        if(response === true){
-            filteredArray.push(elements[index]);
-        }else{
-            continue;
+    if(Array.isArray(elements) === false ){
+        return undefined;
+    }else{
+        for(let index = 0; index < elements.length; index++){
+            let response = cb(elements[index], index, elements);
+            if(response === true){
+                filteredArray.push(elements[index]);
+            }else{
+                continue;
+            }
         }
+        return filteredArray;
     }
-    return filteredArray;
 }
 
 module.exports = filter;
