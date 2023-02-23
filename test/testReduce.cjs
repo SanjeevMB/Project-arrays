@@ -5,9 +5,9 @@ const items = [1, 2, 3, 4, 5, 5];
 let initialValue = 0;
 
 function totalSum(accumulator, element) {
-    if(element === undefined){
+    if (element === undefined) {
         return undefined;
-    }else{
+    } else {
         return accumulator + element;
     }
 }
