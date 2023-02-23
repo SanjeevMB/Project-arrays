@@ -6,16 +6,12 @@ function map(elements, cb) {
 
     let initialLength = elements.length;
     let resultArray = [];
-    if (Array.isArray(elements)=== false  || cb === undefined) {
+    if (Array.isArray(elements)=== false) {
         return undefined;
     } else {
         for (let index = 0; index < initialLength; index++) {
             let element = cb(elements[index], index, elements);
-            if (element === undefined) {
-                continue;
-            } else {
-                resultArray.push(element);
-            }
+            resultArray.push(element);
         }
         return resultArray;
     }
