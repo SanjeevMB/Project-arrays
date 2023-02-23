@@ -2,8 +2,8 @@ let map = require('../map.cjs');
 
 const items = [1, 2, 3, 4, 5, 5];
 
-function squire(array,index,element){
-    if(array[index] === undefined){
+function squire(element, index, array){
+    if(element === undefined){
         return undefined;
     }else{
         return array[index]**2;

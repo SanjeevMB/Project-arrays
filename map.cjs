@@ -4,13 +4,13 @@ function map(elements, cb) {
     // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
     // Return the new array.
 
-    if (!Array.isArray(elements) || !cb) {
+    let initialLength = elements.length;
+    let resultArray = [];
+    if (Array.isArray(elements)=== false  || cb === undefined) {
         return undefined;
     } else {
-        let initialLength = elements.length;
-        let resultArray = [];
         for (let index = 0; index < initialLength; index++) {
-            let element = cb(elements, index, elements[index]);
+            let element = cb(elements[index], index, elements);
             if (element === undefined) {
                 continue;
             } else {
