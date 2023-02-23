@@ -1,8 +1,8 @@
 let reduce = require('../reduce.cjs');
 
-const items = [1, 2, 3, undefined, 4, 5, 5];
+const items = [1, 2, 3, 4, 5, 5];
 
-let initialValue = undefined;
+let initialValue = 0;
 
 function totalSum(accumulator, element) {
     if(element === undefined){

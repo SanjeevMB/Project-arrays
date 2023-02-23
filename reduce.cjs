@@ -13,15 +13,19 @@ function reduce(elements, cb, startingValue) {
         finalValue = elements[0];
     }
 
-    for (let index = 0; index < initialLength; index++) {
-        let updatedValue = cb(finalValue, elements[index]);
-        if(updatedValue === undefined){
-            continue;
-        }else{
-            finalValue = updatedValue;
+    if(Array.isArray(elements) === false || cb === undefined){
+        return undefined;
+    }else{
+        for (let index = 0; index < initialLength; index++) {
+            let updatedValue = cb(finalValue, elements[index], index, elements);
+            if(updatedValue === undefined){
+                continue;
+            }else{
+                finalValue = updatedValue;
+            }
         }
+        return finalValue;
     }
-    return finalValue;
 }
 
 module.exports = reduce;
